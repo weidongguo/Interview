@@ -1,5 +1,5 @@
 C = g++
-ARG = -I. -Wall
+ARG = -I. -Wall -std=c++11
 
 a.out: test_linkedList.o linkedList.o
 	$(C) test_linkedList.o linkedList.o $(ARG)	

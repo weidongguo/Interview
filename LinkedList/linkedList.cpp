@@ -1,12 +1,12 @@
 #include <linkedList.h> // use -I. argument for compilation
 #include <cstdio>
 #include <unistd.h>
+#include <unordered_map>
 
 Node* newNode(int val){
 	Node *n = new Node();
 	n->val = val;
 	n->next = 0;
-	n->visited = false;
 	return n;
 }
 
@@ -85,13 +85,14 @@ void createLoop(Node *head, int pos){ // loop back to a certain pos, if pos is n
 
 bool hasLoop(Node *head){ //O(n)
 	Node *cur = head;	
-	bool flag = head->visited;
-	while(cur){
-		cur->visited = !cur->visited;		
-		if(cur->visited == flag) // must be set twice, to make this true
-			return true;
-		cur = cur->next;
+	std::unordered_map <Node*, char> hashTable;
+	while(cur){ //O(n)
+		if( hashTable.count(cur) > 0 ) // check existence O(1)
+			return true;				
+		else
+			hashTable[cur];//store	O(1)
 
+		cur = cur->next;
 	}
 	return false;
 }

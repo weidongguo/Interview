@@ -1,7 +1,6 @@
 typedef struct Node {
 	struct Node *next;
 	int	val;
-	bool visited;
 } Node;
 
 Node* newNode(int val);

@@ -12,7 +12,7 @@ int main(){
 	traverse(head);
 	traverse(midNode(head));
 
-	createLoop(head,3);	
+	createLoop(head,4);	
 	std::cout << (hasLoop(head) ? "has loop\n": "no loop\n");
 	traverse(head, 500);
 	
