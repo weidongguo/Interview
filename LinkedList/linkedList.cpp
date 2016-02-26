@@ -83,7 +83,7 @@ void createLoop(Node *head, int pos){ // loop back to a certain pos, if pos is n
 	}
 }
 
-bool hasLoop(Node *head){ //O(n)
+bool hasLoop(Node *head){ //O(n) ,yet use up space as large as making a copy of the linked list. When we are dealing with big linked list, this may not work well
 	Node *cur = head;	
 	std::unordered_map <Node*, char> hashTable;
 	while(cur){ //O(n)
@@ -94,6 +94,22 @@ bool hasLoop(Node *head){ //O(n)
 
 		cur = cur->next;
 	}
+	return false;
+}
+
+bool hasLoopTortoiseHare(Node *head){ // O(n), Tortoise and Hare Algo, best solution 
+	Node *slow, *fast1, *fast2;
+	slow = fast1 = fast2 = head;	
+	
+	while(slow && (fast1 = fast2->next) && (fast2 = fast1->next)){
+	//fast1 is the first step
+	//fast2 is the second step		
+		
+		if(slow == fast1 || slow == fast2) // match any of the steps	
+			return true;
+		slow = slow->next; //  slow moves by 1 step
+	}
+
 	return false;
 }
 

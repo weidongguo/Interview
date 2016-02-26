@@ -20,3 +20,5 @@ void createLoop(Node *head, int pos);
 
 bool hasLoop(Node *head);
 
+bool hasLoopTortoiseHare(Node *head);
+

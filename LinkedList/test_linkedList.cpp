@@ -12,8 +12,8 @@ int main(){
 	traverse(head);
 	traverse(midNode(head));
 
-	createLoop(head,4);	
-	std::cout << (hasLoop(head) ? "has loop\n": "no loop\n");
+	createLoop(head,3);	
+	std::cout << (hasLoopTortoiseHare(head) ? "has loop\n": "no loop\n");
 	traverse(head, 500);
 	
 		
